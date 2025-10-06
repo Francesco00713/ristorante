@@ -3,6 +3,25 @@
     $piatto = isset($_POST["piatto"]) ? $_POST["piatto"] : "";
     $allergie = isset($_POST["allergie"]) ? $_POST["allergie"] : "";
     $ip = $_SERVER["REMOTE_ADDR"];
+
+    $ricette = [
+        [
+            "nome" => "pancake",
+            "img" => "https://hips.hearstapps.com/hmg-prod/images/best-homemade-pancakes-index-640775a2dbad8.jpg?crop=0.8890503582601677xw:1xh;center,top&resize=1200:*",
+            "allergeni" => ["uova", "glutine", "lattosio"]
+        ],
+        [
+            "nome" => "risotto ai frutti di mare",
+            "img" => "https://media-assets.lacucinaitaliana.it/photos/61faa1483054885fcf0366d9/1:1/w_2560%2Cc_limit/empty",
+            "allergeni" => ["glutine", "crostacei"]
+        ],
+        [
+            "nome" => "torta alla frutta secca",
+            "img" => "https://www.quasidolce.it/wp-content/uploads/2018/11/0311-2018-0858744277434785092499.jpeg",
+            "allergeni" => ["glutine", "frutta secca",]
+        ]
+    ];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -67,6 +86,14 @@
                     echo "<br>";
                 }
                 echo "Curiosità: La sua richiesta ci è arrivata dall'indirizzo <strong>$ip</strong>.";
+                echo "<br><br>";
+                foreach ($ricette as $ricetta) {
+                    foreach ($allergie as $allergia){
+                        if(in_array($allergia, $ricetta["allergeni"])){
+                            
+                        }
+                    }
+                }
             }
         ?>
     </div>
